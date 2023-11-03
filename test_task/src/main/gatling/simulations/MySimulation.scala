@@ -15,7 +15,7 @@ class MySimulation extends Simulation {
       .body(StringBody("""{"message": "test message"}"""))
       .header("Content-Type", "application/json")
 
-  //      .check(status.is(200)))
+        .check(status.is(200)))
 
 //check fail test
   val scn = scenario("Send Messages to Kafka")
@@ -23,7 +23,7 @@ class MySimulation extends Simulation {
       .post("/api/send-message")
       .body(StringBody("""{"message": "test message"}"""))
       .header("Content-Type", "application/json")
-      .check(status.is(500)))  //check 500 internal status
+    //  .check(status.is(500)))  //check 500 internal status
 
   setUp(scn.inject(
     constantUsersPerSec(10) during (10 seconds)
